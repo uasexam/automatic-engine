@@ -8,15 +8,18 @@ exit;
 $sql = "SELECT * FROM users";
 $result = mysqli_query($link,$sql);
 
+$count = 0;
 if(mysqli_num_rows($result) > 0) {
 	while ($row = mysqli_fetch_assoc($result)){
-		echo "id: " .$row["id"]. "<br> Name: " .$row["nama"]. 
-		"<br> kantor: " .$row["kantor"]. "<br> <br>";
+		$count += 1;
 	}
 }
 else
 {
 	echo "empty";
 }
+
+echo "jumlah user:" . $count;
+
 mysqli_close($link);
 ?>
